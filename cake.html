@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>祝福网页</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        #flower-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('cake.avif');
+            background-size: 100% 100%;
+            background-position: center;
+        }
+        #message, #cake-container {
+            display: none;
+            font-size: 2em;
+            color: #ff1493;
+            text-align: center;
+        }
+        #cake-container {
+            display: none;
+        }
+        #cake {
+            width: 300px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="flower-container"></div>
+    <div id="message">看到这里的朋友今天要开心哦o(*￣▽￣*)ブ</div>
+    <div id="cake-container">
+        <img id="cake" src="cake.jpg" alt="蛋糕图片（先画个饼）">
+        <div id="cake-message">不错哟，诚实的孩子。答对了奖励一块蛋糕。</div>
+    </div>
+
+    <script>
+        let stage = 1;
+        const flowerContainer = document.getElementById('flower-container');
+        const message = document.getElementById('message');
+        const cakeContainer = document.getElementById('cake-container');
+        const cakeMessage = document.getElementById('cake-message');
+
+        document.body.addEventListener('click', () => {
+            if (stage === 1) {
+                flowerContainer.style.display = 'none';
+                message.style.display = 'block';
+                stage = 2;
+            } else if (stage === 2) {
+                let userResponse = prompt("请输入你的生日（如1.1，10.24）");
+                if (userResponse === "7.1") {
+                    cakeContainer.style.display = 'block';
+                    cakeMessage.innerHTML = "不错哟，诚实的孩子。答对了奖励一块蛋糕。";
+                    stage = 3;
+                } else {
+                    alert("不对哦，再想想？");
+                }
+            } else if (stage === 3) {
+                cakeMessage.innerHTML = "蛋糕配送中，记得查收哟。";
+                stage = 4;
+            }
+        });
+    </script>
+</body>
+</html>
+
