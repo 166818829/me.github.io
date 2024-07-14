@@ -19,8 +19,8 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background-image: url('cake.avif');
-            background-size: 100% 100%;
+            background-image: url('pinkflower.jfif');
+            background-size: cover;
             background-position: center;
         }
         #message, #cake-container {
@@ -42,8 +42,8 @@
     <div id="flower-container"></div>
     <div id="message">看到这里的朋友今天要开心哦o(*￣▽￣*)ブ</div>
     <div id="cake-container">
-        <img id="cake" src="cake.jpg" alt="蛋糕图片（先画个饼）">
-        <div id="cake-message">不错哟，机智的孩子。请你吃蛋糕吧。</div>
+        <img id="cake" src="cake.jpg" alt="蛋糕图片">
+        <div id="cake-message">不错哟，机智的孩子。请你吃蛋糕。</div>
     </div>
 
     <script>
@@ -53,7 +53,7 @@
         const cakeContainer = document.getElementById('cake-container');
         const cakeMessage = document.getElementById('cake-message');
 
-        document.body.addEventListener('click', () => {
+        function handleInteraction() {
             if (stage === 1) {
                 flowerContainer.style.display = 'none';
                 message.style.display = 'block';
@@ -62,7 +62,7 @@
                 let userResponse = prompt("请输入我的生日（如1.1，10.24）");
                 if (userResponse === "3.19") {
                     cakeContainer.style.display = 'block';
-                    cakeMessage.innerHTML = "不错哟，机智的孩子。请你吃蛋糕吧。";
+                    cakeMessage.innerHTML = "不错哟，机智的孩子。请你吃蛋糕。";
                     stage = 3;
                 } else {
                     alert("不对哦，再想想？");
@@ -71,7 +71,10 @@
                 cakeMessage.innerHTML = "蛋糕配送中，记得查收哟。";
                 stage = 4;
             }
-        });
+        }
+
+        document.body.addEventListener('click', handleInteraction);
+        document.body.addEventListener('touchstart', handleInteraction);
     </script>
 </body>
 </html>
