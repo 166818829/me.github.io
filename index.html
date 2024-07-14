@@ -36,11 +36,6 @@
             width: 300px;
             height: auto;
         }
-        #final-cake {
-            width: 300px;
-            height: auto;
-            display: none;
-        }
     </style>
 </head>
 <body>
@@ -51,14 +46,12 @@
         <div id="cake-message">不错哟，机智的孩子。请你吃蛋糕。</div>
     </div>
 
-
     <script>
         let stage = 1;
         const flowerContainer = document.getElementById('flower-container');
         const message = document.getElementById('message');
         const cakeContainer = document.getElementById('cake-container');
         const cakeMessage = document.getElementById('cake-message');
-        const finalCake = document.getElementById('final-cake');
 
         function handleInteraction() {
             if (stage === 1) {
@@ -76,7 +69,6 @@
                 }
             } else if (stage === 3) {
                 cakeMessage.innerHTML = "蛋糕配送中，记得查收哟。";
-                finalCake.style.display = 'block';
                 stage = 4;
             }
         }
